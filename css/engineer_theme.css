@@ -1,0 +1,1078 @@
+@charset "UTF-8";
+/*epub reader container*/
+.epub-view {
+  top: 50%;
+  transform: translate(0px, -50%);
+}
+
+/* 下方工具列分隔用 */
+.break {
+  display: none;
+  font-size: 0px;
+}
+
+@media only screen and (max-width: 768px) {
+  .break {
+    display: block;
+  }
+}
+
+.fence::after {
+  content: '';
+  padding-right: 20px;
+  display: inline-block;
+}
+
+@media only screen and (max-width: 768px) {
+  .fence::after {
+    padding-right: 10px;
+  }
+}
+
+/* mobile無hover使用 */
+.opaque {
+  opacity: 1 !important;
+}
+
+.transparent {
+  opacity: 0 !important;
+}
+
+.swal2-container {
+  z-index: 2060 !important;
+}
+
+[class^="icon-toolbar-"]:before, [class*=" icon-toolbar-"]:before {
+  font-size: 24px;
+}
+
+#main {
+  transition: 0.4s all;
+}
+
+#main #divider {
+  top: calc(50% - 20px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 82.5%;
+  max-height: calc(100% - 120px);
+}
+
+@media only screen and (max-width: 768px) {
+  #main #divider {
+    height: calc(100% - 145px);
+  }
+}
+
+@media only screen and (max-width: 1040px) {
+  #main #divider.show {
+    display: block !important;
+  }
+}
+
+/*中間閱讀範圍*/
+#viewer {
+  max-height: calc(100% - 120px);
+  margin: 0 !important;
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 20px);
+  transform: translate(-50%, -50%);
+}
+
+@media only screen and (max-width: 1040px) {
+  #viewer {
+    width: 70%;
+    height: 90% !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #viewer {
+    max-height: calc(100% - 150px);
+    /*calc(95% - 110px);*/
+    width: calc(95% - 50px);
+  }
+}
+
+#viewer.vertical {
+  max-width: 1040px;
+}
+
+@media only screen and (max-width: 1040px) {
+  #viewer.vertical {
+    max-width: 90%;
+    width: 90%;
+  }
+}
+
+#viewer #view-move-area:hover {
+  cursor: move;
+}
+
+/*版面調整*/
+.modal {
+  max-width: 420px;
+  min-width: 400px;
+}
+
+@media only screen and (max-width: 768px) {
+  .modal {
+    max-width: 420px;
+    min-width: 50%;
+    width: 90%;
+  }
+}
+
+.modal .md-content {
+  min-height: 350px;
+}
+
+.modal .md-content #backgroundThemeSetting button {
+  width: 33.3%;
+  float: left;
+  white-space: nowrap;
+}
+
+.modal .md-content button:disabled {
+  background: transparent !important;
+  color: #bbbbbb !important;
+}
+
+.modal .md-content button {
+  height: 28px;
+}
+
+.modal .icon {
+  position: absolute;
+  right: 0;
+  top: 1px;
+  font-size: 24px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.modal .icon.icon-info-circled {
+  right: 32.5px;
+}
+
+.modal .icon.icon-info-circled::before {
+  content: '';
+  color: #fff;
+  font-family: 'fontello_new';
+}
+
+/*下方工具列*/
+#toolbar {
+  height: 60px;
+  transition: all 0.4s;
+}
+
+@media only screen and (max-width: 768px) {
+  #toolbar {
+    bottom: 15px;
+    height: 80px;
+  }
+}
+
+#toolbar div {
+  display: inline-block;
+}
+
+@media only screen and (max-width: 768px) {
+  #toolbar #pagebar {
+    line-height: 1.8;
+  }
+}
+
+#toolbar #pagebar #auto-page-turning {
+  margin-right: 0px !important;
+}
+
+@media only screen and (max-width: 768px) {
+  #toolbar #pagebar #current-page {
+    min-width: 40px;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  #toolbar #pagebar #lastPage + span {
+    display: none;
+  }
+}
+
+#toolbar #pagebar #delay-time {
+  max-width: 65px;
+}
+
+@media only screen and (max-width: 1040px) {
+  #toolbar #single-page, #toolbar #double-page {
+    display: none !important;
+  }
+}
+
+/*左方工具列*/
+#sidebar, #sidebar div:not(#panels) {
+  z-index: -1;
+}
+
+#sidebar.open #panels a {
+  visibility: visible !important;
+}
+
+#sidebar.open #panels a ::before {
+  visibility: visible !important;
+}
+
+#sidebar #tocView > ul {
+  margin: 0px 0px;
+}
+
+#sidebar #tocView > ul:not(:first-child):before {
+  content: '';
+  display: inline-block;
+  border-top: 1px dashed #CCC;
+  width: 80%;
+}
+
+#sidebar #tocView > ul > li li:not(.toc_nest) {
+  margin-left: 14px;
+}
+
+#sidebar #tocView > ul > li ul {
+  margin-top: 15px;
+}
+
+#sidebar #tocView > ul > li,
+#sidebar #searchView li {
+  font-size: 15px;
+  margin: 15px 0px;
+}
+
+/*上方工具列*/
+#titlebar #metainfo {
+  margin-top: 10px;
+}
+
+#titlebar #title-controls.zoomIn .tooltiptext {
+  left: 0%;
+}
+
+#titlebar #title-controls a#moving-Content {
+  display: none;
+}
+
+#titlebar #title-controls #moving-Content.icon-move:before {
+  content: '';
+  font-family: 'fontello_new';
+}
+
+#titlebar #title-controls #moving-Content.icon-pointer:before {
+  content: '';
+  font-family: 'fontello_new';
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  -moz-apperance: none;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 5px 0px;
+}
+
+input[type="range"]:focus {
+  /* 去除 focus 時候的外框虛線 */
+  outline: none;
+}
+
+input[type="range"]::-moz-focus-outer {
+  border: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track, input[type="range"]::-moz-range-track {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 35px;
+  color: transparent;
+  background: lightgray;
+  border-radius: 999px;
+  border: none;
+  background: rgba(136, 136, 136, 0.5);
+  border: 0px solid rgba(0, 0, 0, 0);
+}
+
+input[type="range"]::-ms-track {
+  width: 100%;
+  height: 32px;
+  color: transparent;
+  background: lightgray;
+  border-radius: 999px;
+  border: none;
+  background: rgba(136, 136, 136, 0.5);
+  border: 0px solid rgba(0, 0, 0, 0);
+}
+
+input[type="range"]::-ms-fill-upper, input[type="range"]::-ms-fill-lower {
+  background-color: transparent;
+}
+
+input[type="range"]::-webkit-slider-thumb, input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  position: relative;
+  z-index: 2;
+  background: url(../img/zoom.svg);
+  background-size: 73%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 0px solid rgba(0, 0, 0, 0);
+}
+
+input[type="range"]::-ms-thumb {
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  position: relative;
+  z-index: 2;
+  background: url(../img/zoom.svg);
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 0px solid rgba(0, 0, 0, 0);
+}
+
+/*theme start*/
+body.vintage {
+  background: #4e4337;
+}
+
+body.vintage #main {
+  background: #F4EFE3;
+}
+
+body.vintage input:not([type=range]) {
+  background: #e6dabe;
+  color: #150f0a;
+  border: 1px solid rgba(126, 91, 58, 0.5);
+}
+
+body.vintage input:not([type=range]):disabled {
+  background: rgba(74, 53, 34, 0.3);
+  color: rgba(56, 41, 26, 0.8);
+  opacity: 0.8;
+}
+
+body.vintage #panels {
+  background: #6a533d;
+}
+
+body.vintage #panels input {
+  background: #F4EFE3;
+  color: #5B422A;
+  border: 1px solid rgba(126, 91, 58, 0.5);
+}
+
+body.vintage #panels a:not(.active) {
+  color: #d7c59a;
+}
+
+body.vintage #panels a:not(.active):hover, body.vintage #panels a.active {
+  color: #F4EFE3;
+}
+
+body.vintage #sidebar, body.vintage #sidebar div:not(#panels) {
+  background: #afa190;
+}
+
+body.vintage #sidebar div:not(#panels) ul:not(:first-child):before {
+  border-top: 1px dashed #F4EFE3;
+}
+
+body.vintage #sidebar div:not(#panels) li a {
+  color: #dcd2c1 !important;
+}
+
+body.vintage #sidebar div:not(#panels) li a:hover, body.vintage #sidebar div:not(#panels) li p, body.vintage #sidebar div:not(#panels) li .toc_toggle::before {
+  color: #F4EFE3 !important;
+}
+
+body.vintage #next, body.vintage #prev {
+  color: rgba(91, 66, 42, 0.3);
+}
+
+body.vintage #next:not(.disabled):hover, body.vintage #prev:not(.disabled):hover {
+  color: #5B422A;
+}
+
+body.vintage #pagebar {
+  color: #5B422A;
+}
+
+body.vintage #titlebar {
+  color: #5B422A;
+}
+
+body.vintage #titlebar a {
+  opacity: 0.8;
+}
+
+body.vintage #titlebar a:hover {
+  border: 1px rgba(91, 66, 42, 0.5) solid;
+}
+
+body.vintage #titlebar a:active {
+  color: #5B422A;
+}
+
+body.vintage .tooltiptext {
+  color: #F4EFE3 !important;
+  background-color: #150f0a !important;
+}
+
+body.night {
+  background: #93989c;
+}
+
+body.night #main {
+  background: #495158;
+}
+
+body.night input:not([type=range]) {
+  background: #fff;
+  color: #495158;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+body.night input:not([type=range]):disabled {
+  background: rgba(242, 242, 242, 0.3);
+  color: rgba(242, 242, 242, 0.8);
+  opacity: 0.8;
+}
+
+body.night #panels {
+  background: #949ea6;
+}
+
+body.night #panels input {
+  background: #fff;
+  color: #495158;
+}
+
+body.night #panels a:not(.active) {
+  color: #ccd0d4;
+}
+
+body.night #panels a:not(.active):hover, body.night #panels a.active {
+  color: white;
+}
+
+body.night #sidebar, body.night #sidebar div:not(#panels) {
+  background: #c8cbcd;
+}
+
+body.night #sidebar div:not(#panels) ul:not(:first-child):before {
+  border-top: 1px dashed #495158;
+}
+
+body.night #sidebar div:not(#panels) li a {
+  color: #70787f !important;
+}
+
+body.night #sidebar div:not(#panels) li a:hover, body.night #sidebar div:not(#panels) li p, body.night #sidebar div:not(#panels) li .toc_toggle::before {
+  color: #495158 !important;
+}
+
+body.night #next, body.night #prev {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+body.night #next:not(.disabled):hover, body.night #prev:not(.disabled):hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+body.night #pagebar {
+  color: #fff;
+}
+
+body.night #pagebar div:not(.disabled) {
+  opacity: 0.7;
+}
+
+body.night #titlebar {
+  color: #fff;
+}
+
+body.night #titlebar a:hover {
+  border: 1px rgba(255, 255, 255, 0.3) solid;
+}
+
+body.night #titlebar a:active {
+  color: #fff;
+}
+
+body.night .tooltiptext {
+  color: #495158 !important;
+  background-color: #cccccc !important;
+}
+
+body.peace {
+  background: #697682;
+}
+
+body.peace #main {
+  background: #F9F9F9;
+}
+
+body.peace input:not([type=range]) {
+  background: #F9F9F9;
+  color: #788694;
+  border: 1px solid rgba(148, 160, 171, 0.5);
+}
+
+body.peace input:not([type=range]):disabled {
+  background: rgba(107, 121, 135, 0.3);
+  color: #49535d;
+  opacity: 1;
+}
+
+body.peace #panels {
+  background: #788694;
+}
+
+body.peace #panels input {
+  background: #F9F9F9;
+  color: #788694;
+}
+
+body.peace #panels a:not(.active) {
+  color: #b1b9c1;
+}
+
+body.peace #panels a:not(.active):hover, body.peace #panels a.active {
+  color: #eaecee;
+}
+
+body.peace #sidebar, body.peace #sidebar div:not(#panels) {
+  background: #9fa9b2;
+}
+
+body.peace #sidebar div:not(#panels) ul:not(:first-child):before {
+  border-top: 1px dashed #F9F9F9;
+}
+
+body.peace #sidebar div:not(#panels) li a {
+  color: #d0d5d8 !important;
+}
+
+body.peace #sidebar div:not(#panels) li a:hover, body.peace #sidebar div:not(#panels) li p, body.peace #sidebar div:not(#panels) li .toc_toggle::before {
+  color: #F9F9F9 !important;
+}
+
+body.peace #next, body.peace #prev {
+  color: rgba(120, 134, 148, 0.3);
+}
+
+body.peace #next:not(.disabled):hover, body.peace #prev:not(.disabled):hover {
+  color: rgba(120, 134, 148, 0.8);
+}
+
+body.peace #pagebar {
+  color: #333a40;
+}
+
+body.peace #titlebar {
+  color: #49535d;
+}
+
+body.peace #titlebar a:hover {
+  border: 1px rgba(120, 134, 148, 0.5) solid;
+}
+
+body.peace #titlebar a:active {
+  color: #49535d;
+}
+
+body.peace .tooltiptext {
+  color: #F9F9F9 !important;
+  background-color: #49535d !important;
+}
+
+body.cold {
+  background: #4b626e;
+}
+
+body.cold #main {
+  background: #253F58;
+}
+
+body.cold input:not([type=range]) {
+  background: #2d4c6a;
+  color: #9FBBC6;
+  border: 1px solid rgba(191, 210, 217, 0.5);
+}
+
+body.cold input:not([type=range]):disabled {
+  background: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(52, 89, 124, 0.5);
+  opacity: 0.5;
+}
+
+body.cold #panels {
+  background: #5c8cba;
+}
+
+body.cold #panels input {
+  background: #ebf1f7;
+  color: #253F58;
+}
+
+body.cold #panels a:not(.active) {
+  color: #a3bfd9;
+}
+
+body.cold #panels a:not(.active):hover, body.cold #panels a.active {
+  color: #ebf1f7;
+}
+
+body.cold #sidebar, body.cold #sidebar div:not(#panels) {
+  background: #34597c;
+}
+
+body.cold #sidebar div:not(#panels) ul:not(:first-child):before {
+  border-top: 1px dashed #bfd2d9;
+}
+
+body.cold #sidebar div:not(#panels) li a {
+  color: #7d9cac !important;
+}
+
+body.cold #sidebar div:not(#panels) li a:hover, body.cold #sidebar div:not(#panels) li p, body.cold #sidebar div:not(#panels) li .toc_toggle::before {
+  color: #bfd2d9 !important;
+}
+
+body.cold #next, body.cold #prev {
+  color: rgba(159, 187, 198, 0.3);
+}
+
+body.cold #next:not(.disabled):hover, body.cold #prev:not(.disabled):hover {
+  color: #9FBBC6;
+}
+
+body.cold #toolbar {
+  opacity: 0.8;
+}
+
+body.cold #pagebar {
+  color: #dfe8ec;
+}
+
+body.cold #pagebar div:not(.disabled) {
+  opacity: 0.7;
+}
+
+body.cold #pagebar div.disabled {
+  opacity: 0.2;
+}
+
+body.cold #titlebar {
+  color: #dfe8ec;
+  opacity: 0.8;
+}
+
+body.cold #titlebar a:hover {
+  border: 1px rgba(159, 187, 198, 0.5) solid;
+}
+
+body.cold #titlebar a:active {
+  color: #dfe8ec;
+}
+
+body.cold .tooltiptext {
+  color: #253F58 !important;
+  background-color: #dfe8ec !important;
+}
+
+body.black {
+  background: gray;
+}
+
+body.black #main {
+  background: #000;
+}
+
+body.black input:not([type=range]) {
+  background: #1a1a1a;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+body.black input:not([type=range]):disabled {
+  background: rgba(26, 26, 26, 0.8);
+  color: rgba(179, 179, 179, 0.8);
+  border: 1px solid rgba(26, 26, 26, 0.5);
+  opacity: 1;
+}
+
+body.black #panels {
+  background: #4d4d4d;
+}
+
+body.black #panels input {
+  background: #fff;
+  color: #000;
+}
+
+body.black #panels a:not(.active) {
+  color: #999999;
+}
+
+body.black #panels a:not(.active):hover, body.black #panels a.active {
+  color: #e6e6e6;
+}
+
+body.black #sidebar, body.black #sidebar div:not(#panels) {
+  background: #666666;
+}
+
+body.black #sidebar div:not(#panels) ul:not(:first-child):before {
+  border-top: 1px dashed #e6e6e6;
+}
+
+body.black #sidebar div:not(#panels) li a {
+  color: silver !important;
+}
+
+body.black #sidebar div:not(#panels) li a:hover, body.black #sidebar div:not(#panels) li p, body.black #sidebar div:not(#panels) li .toc_toggle::before {
+  color: #e6e6e6 !important;
+}
+
+body.black #next, body.black #prev {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+body.black #next:not(.disabled):hover, body.black #prev:not(.disabled):hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+body.black #toolbar {
+  opacity: 0.8;
+}
+
+body.black #pagebar {
+  color: #fff;
+}
+
+body.black #pagebar div:not(.disabled) {
+  opacity: 0.7;
+}
+
+body.black #pagebar div.disabled {
+  opacity: 0.2;
+}
+
+body.black #titlebar {
+  color: #fff;
+  opacity: 0.8;
+}
+
+body.black #titlebar:hover {
+  opacity: 1;
+}
+
+body.black #titlebar a {
+  opacity: 0.8;
+}
+
+body.black #titlebar a:hover {
+  opacity: 1;
+  border: 1px rgba(255, 255, 255, 0.5) solid;
+}
+
+body.black #titlebar a:active {
+  color: #fff;
+}
+
+body.black .tooltiptext {
+  color: #000 !important;
+  background-color: #f2f2f2 !important;
+}
+
+body.milkgreen {
+  background: #697d85;
+}
+
+body.milkgreen #main {
+  background: #EEF9F2;
+}
+
+body.milkgreen input:not([type=range]) {
+  background: #f6fcf8;
+  color: #7E8E9A;
+  border: 1px solid rgba(155, 167, 176, 0.5);
+}
+
+body.milkgreen input:not([type=range]):disabled {
+  background: rgba(125, 209, 156, 0.3);
+  color: rgba(11, 13, 14, 0.5);
+  opacity: 0.5;
+}
+
+body.milkgreen #panels {
+  background: #70818f;
+}
+
+body.milkgreen #panels input {
+  background: #f6fcf8;
+  color: #70818f;
+}
+
+body.milkgreen #panels a:not(.active) {
+  color: #e2e6e8;
+}
+
+body.milkgreen #panels a:not(.active):hover, body.milkgreen #panels a.active {
+  color: white;
+}
+
+body.milkgreen #sidebar, body.milkgreen #sidebar div:not(#panels) {
+  background: #d8e4e0;
+}
+
+body.milkgreen #sidebar div:not(#panels) ul:not(:first-child):before {
+  border-top: 1px dashed #70818f;
+}
+
+body.milkgreen #sidebar div:not(#panels) li a {
+  color: #97a5ae !important;
+}
+
+body.milkgreen #sidebar div:not(#panels) li a:hover, body.milkgreen #sidebar div:not(#panels) li p, body.milkgreen #sidebar div:not(#panels) li .toc_toggle::before {
+  color: #70818f !important;
+}
+
+body.milkgreen #next, body.milkgreen #prev {
+  color: rgba(126, 142, 154, 0.3);
+}
+
+body.milkgreen #next:not(.disabled):hover, body.milkgreen #prev:not(.disabled):hover {
+  color: #7E8E9A;
+}
+
+body.milkgreen #pagebar {
+  color: #384147;
+}
+
+body.milkgreen #titlebar {
+  color: #384147;
+}
+
+body.milkgreen #titlebar a:hover {
+  border: 1px rgba(126, 142, 154, 0.5) solid;
+}
+
+body.milkgreen #titlebar a:active {
+  color: #384147;
+}
+
+body.milkgreen .tooltiptext {
+  color: #EEF9F2 !important;
+  background-color: #7E8E9A !important;
+}
+
+body.coffee {
+  background: #a29479;
+}
+
+body.coffee #main {
+  background: #70614B;
+}
+
+body.coffee input:not([type=range]) {
+  background: #685a46;
+  color: #F3EEE2;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+body.coffee input:not([type=range]):disabled {
+  background: rgba(207, 198, 184, 0.3);
+  color: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(81, 71, 55, 0.5);
+  opacity: 1;
+}
+
+body.coffee #panels {
+  background: #ece3d0;
+}
+
+body.coffee #panels input {
+  background: #a29684;
+  color: #ece3d0;
+}
+
+body.coffee #panels a:not(.active) {
+  color: #bbad99;
+}
+
+body.coffee #panels a:not(.active):hover, body.coffee #panels a.active {
+  color: #70614B;
+}
+
+body.coffee #sidebar, body.coffee #sidebar div:not(#panels) {
+  background: #8a7d69;
+}
+
+body.coffee #sidebar div:not(#panels) ul:not(:first-child):before {
+  border-top: 1px dashed #ece3d0;
+}
+
+body.coffee #sidebar div:not(#panels) li a {
+  color: #cabea2 !important;
+}
+
+body.coffee #sidebar div:not(#panels) li a:hover, body.coffee #sidebar div:not(#panels) li p, body.coffee #sidebar div:not(#panels) li .toc_toggle::before {
+  color: #ece3d0 !important;
+}
+
+body.coffee #next, body.coffee #prev {
+  color: rgba(243, 238, 226, 0.2);
+}
+
+body.coffee #next:not(.disabled):hover, body.coffee #prev:not(.disabled):hover {
+  color: #F3EEE2;
+}
+
+body.coffee #toolbar {
+  opacity: 0.8;
+}
+
+body.coffee #pagebar {
+  color: #F3EEE2;
+}
+
+body.coffee #pagebar div:not(.disabled) {
+  opacity: 0.7;
+}
+
+body.coffee #pagebar div.disabled {
+  opacity: 0.2;
+}
+
+body.coffee #titlebar {
+  color: #F3EEE2;
+  opacity: 0.8;
+}
+
+body.coffee #titlebar a:hover {
+  border: 1px rgba(243, 238, 226, 0.5) solid;
+}
+
+body.coffee #titlebar a:active {
+  color: #F3EEE2;
+}
+
+body.coffee .tooltiptext {
+  color: #70614B !important;
+  background-color: #F3EEE2 !important;
+}
+
+body.blackboard {
+  background: #777d7a;
+}
+
+body.blackboard #main {
+  background: #36423C;
+}
+
+body.blackboard input:not([type=range]) {
+  background: #2b342f;
+  color: #DDDDDD;
+  border: 1px solid rgba(247, 247, 247, 0.5);
+}
+
+body.blackboard input:not([type=range]):disabled {
+  background: rgba(153, 171, 162, 0.3);
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(145, 145, 145, 0.5);
+  opacity: 1;
+}
+
+body.blackboard #panels {
+  background: #7d9489;
+}
+
+body.blackboard #panels input {
+  background: #edf0ef;
+  color: #2b342f;
+}
+
+body.blackboard #panels a:not(.active) {
+  color: #b5c2bc;
+}
+
+body.blackboard #panels a:not(.active):hover, body.blackboard #panels a.active {
+  color: #edf0ef;
+}
+
+body.blackboard #sidebar, body.blackboard #sidebar div:not(#panels) {
+  background: #57615c;
+}
+
+body.blackboard #sidebar div:not(#panels) ul:not(:first-child):before {
+  border-top: 1px dashed #d0d0d0;
+}
+
+body.blackboard #sidebar div:not(#panels) li a {
+  color: #a5a9a7 !important;
+}
+
+body.blackboard #sidebar div:not(#panels) li a:hover, body.blackboard #sidebar div:not(#panels) li p, body.blackboard #sidebar div:not(#panels) li .toc_toggle::before {
+  color: #d0d0d0 !important;
+}
+
+body.blackboard #next, body.blackboard #prev {
+  color: rgba(221, 221, 221, 0.2);
+}
+
+body.blackboard #next:not(.disabled):hover, body.blackboard #prev:not(.disabled):hover {
+  color: #DDDDDD;
+}
+
+body.blackboard #toolbar {
+  opacity: 0.8;
+}
+
+body.blackboard #pagebar {
+  color: #DDDDDD;
+}
+
+body.blackboard #pagebar div:not(.disabled) {
+  opacity: 0.7;
+}
+
+body.blackboard #pagebar div.disabled {
+  opacity: 0.2;
+}
+
+body.blackboard #titlebar {
+  color: #DDDDDD;
+  opacity: 0.8;
+}
+
+body.blackboard #titlebar a:hover {
+  border: 1px rgba(221, 221, 221, 0.5) solid;
+}
+
+body.blackboard #titlebar a:active {
+  color: #DDDDDD;
+}
+
+body.blackboard .tooltiptext {
+  color: #36423C !important;
+  background-color: #DDDDDD !important;
+}
+
+/*theme end*/

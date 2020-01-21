@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2019 by original authors @ fontello.com</metadata>
+<defs>
+<font id="fontello" horiz-adv-x="1000" >
+<font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="zoom-in" unicode="&#xe820;" d="M0 403q0 185 131 316t316 131 318-131 131-316q0-141-82-256l186-186-111-111-186 186q-115-82-256-82-185 0-316 131t-131 318z m127 0q0-133 94-227t226-93 227 93 94 227-94 225-227 93-226-93-94-225z m129-65l0 127 129 0 0 129 127 0 0-129 129 0 0-127-129 0 0-129-127 0 0 129-129 0z" horiz-adv-x="1000" />
+
+<glyph glyph-name="next-page" unicode="&#xe821;" d="M0 580l400-230-400-230 0 460z" horiz-adv-x="400" />
+
+<glyph glyph-name="last-page" unicode="&#xe822;" d="M412 374q14-10 14-24 0-12-14-22l-362-228q-22-14-36-5t-14 35l0 442q0 26 14 35t36-5z m114 268q74 0 74-58l0-466q0-58-74-58-76 0-76 58l0 466q0 58 76 58z" horiz-adv-x="600" />
+
+<glyph glyph-name="prev-page" unicode="&#xe823;" d="M400 580l0-460-400 230z" horiz-adv-x="400" />
+
+<glyph glyph-name="first-page" unicode="&#xe824;" d="M174 350q0 14 14 24l364 228q20 14 34 5t14-35l0-442q0-26-14-35t-34 5l-364 228q-14 10-14 22z m-174 234q0 58 76 58 74 0 74-58l0-466q0-58-74-58-76 0-76 58l0 466z" horiz-adv-x="600" />
+
+<glyph glyph-name="play" unicode="&#xe825;" d="M465 797q184 0 315-131t131-316-131-315-315-132-316 132-131 315 131 316 316 131z m-167-670l446 224-446 223 0-447z" horiz-adv-x="928" />
+
+<glyph glyph-name="pause" unicode="&#xe826;" d="M18-97l0 894 223 0 0-894-223 0z m446 0l0 894 224 0 0-894-224 0z" horiz-adv-x="705" />
+</font>
+</defs>
+</svg>

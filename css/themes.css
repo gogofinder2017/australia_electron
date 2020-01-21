@@ -1,0 +1,54 @@
+.origin {
+    background: #fff;
+    color: #000;
+}
+
+.vintage {
+    background: #F4EFE3;
+    color: #5B422A;
+}
+
+.night {
+    background: #495158;
+    color: #fff;
+}
+
+.peace {
+    background: #F9F9F9;
+    color: #788694;
+}
+
+.cold {
+    /*
+    background: #E1F0F5;
+    color: #495158;
+    */
+    background: #253F58;
+    color: #9FBBC6;
+}
+
+.black {
+    background: #000;
+    color: #fff;
+}
+
+.milkgreen {
+    background: #EEF9F2;
+    color: #7E8E9A;
+}
+
+.coffee {
+    background: #70614B;
+    color: #F3EEE2;
+}
+
+.blackboard {
+    background: #36423C;
+    color: #DDDDDD;
+}
+
+.text {
+    writing-mode: vertical-rl;
+    -epub-writing-mode: vertical-rl;
+    -webkit-writing-mode: vertical-rl;
+}

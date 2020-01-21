@@ -1,0 +1,37 @@
+{
+  "name": "GOGOFINDER",
+  "version": "1.0.0",
+  "description": "EPUB READER",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-packager . myApp --asar=true --out=test --overwrite --platform=win32 --arch=x64 --icon=clock.ico --prune=true --squirrel-install --ignore=node_modules/electron-* --electron-version=7.1.8 --ignore=AlarmClock-win32-x64 --version-string.CompanyName=TDI --version-string.ProductName=JANE",
+    "packager": "electron-packager ./test HelloWorld --all --out ./OutApp --app-version 7.1.8 --overwrite --icon=clock.ico",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^7.1.8",
+    "electron-builder": "^22.2.0",
+    "electron-packager": "^14.2.0"
+  },
+  "dependencies": {
+  },
+  "build": {
+    "appId": "GOGOFINDER",
+    "productName": "GOGO_ePubReader",
+    "directories": {
+      "output": "GOGO_ePubReader_file"
+    }
+  }
+}

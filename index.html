@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+
+        <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="plugins/sweetalert2/dist/sweetalert2.css">
+        <link rel="stylesheet" href="css/engineer_theme.css">
+        <script src="libs/jquery.min.js"></script>
+
+        <!-- Plugins -->
+        <script src="plugins/sweetalert2/dist/sweetalert2.all.min.js"></script>
+
+        <script src="libs/rsvp.min.js"></script>
+        <script src="libs/polyfill.min.js"></script>
+        <script src="libs/url-polyfill.min.js"></script>
+
+
+        <script src="libs/zip.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+
+        <script src="libs/jquery.timer.js"></script>
+
+
+        <!-- File Storage -->
+        <!-- <script src="js/libs/localforage.min.js"></script> -->
+
+        <!-- Full Screen -->
+        <script src="libs/screenfull.js"></script>
+
+
+        <!-- Render -->
+        <script src="libs/polyfill.js"></script>
+        <script src="libs/assign_polyfill.js"></script>
+        <!--
+                <script>
+                    var user_browser = navigator.userAgent.toLocaleLowerCase();
+                    browserType = "no_IE";
+                    if (user_browser.match(/msie/) != null || user_browser.match(/trident/) != null) {
+                        browserType = "IE";
+                        let epub = document.createElement("script");
+                        epub.type = "text/javascript";
+                        epub.src = "libs/epub_ie.js";
+                        document.getElementsByTagName('head')[0].appendChild(epub);
+                        epub = null;
+        
+        
+                        let legacy = document.createElement("script");
+                        legacy.type = "text/javascript";
+                        legacy.src = "libs/epub_ie.legacy.min.js";
+                        document.getElementsByTagName('head')[0].appendChild(legacy);
+        
+                        legacy = null;
+                    } else {
+                        let epub = document.createElement("script");
+                        epub.type = "text/javascript";
+                        epub.src = "libs/epub.js";
+                        document.getElementsByTagName('head')[0].appendChild(epub);
+                        epub = null;
+                    }
+                </script>
+        -->
+        <!-- Reader -->
+        <script src="src/core.js"></script>
+        <script src="src/reader.js"></script>
+        <script src="src/controls_controller.js"></script>
+        <script src="src/meta_controller.js"></script>
+        <script src="src/reader_controller.js"></script>
+        <script src="src/sidebar_controller.js"></script>
+        <script src="src/toc_controller.js"></script>
+        <script src="src/layout_controller.js"></script>
+
+
+        <!-- Plugins -->
+        <script src="plugins/search.js"></script>
+        <script src="js/finder.js"></script>
+
+        <script>
+            
+            document.onreadystatechange = function () {
+                if (document.readyState === 'complete') {
+
+                    var user_browser = navigator.userAgent.toLocaleLowerCase();
+                    browserType = "no_IE";
+                    if (user_browser.match(/msie/) != null || user_browser.match(/trident/) != null) {
+
+                        browserType = "IE";
+
+                        let epub = $("<script/>").attr("type", "text/javascript").attr("src", "libs/epub_ie.js");
+                        let legacy = $("<script/>").attr("type", "text/javascript").attr("src", "libs/epub_ie.legacy.min.js");
+                        $("head").append(epub, legacy);
+                        epub = null;
+                        legacy = null;
+
+                    } else {
+                        let epub = $("<script/>").attr("type", "text/javascript").attr("src", "libs/epub.js");
+                        $("head").append(epub);
+                        epub = null;
+                    }
+                    "use strict";
+                    //set book path 
+                    //el841031 V10A6直式  EPUB reflow sample_直排  EPUB FXL sample   qoo050082 V10A6直式_new v1020323-夢憶迴廊 1577414973
+                    //問題書名: 0936107570j 10617123 
+                    var bookPath = "books/澳洲客戶_袋鼠0121.epub";
+                    //new a epub reader with bookpath
+                    window.reader = ePubReader(bookPath, {
+                        restore: true
+                    });
+
+
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="sidebar">
+            <div id="panels">
+                <input id="searchBox" placeholder=" " type="search">
+                <a id="show-Search" class="show_view icon-search" data-view="Search">Search</a>
+                <a id="show-Toc" class="show_view icon-list-1 active" data-view="Toc">TOC</a>
+            </div>
+            <div id="tocView" class="view">
+            </div>
+            <div id="searchView" class="view">
+                <ul id="searchResults"></ul>
+            </div>
+        </div>
+        <div id="main">
+            <div id="titlebar">
+                <div id="opener">
+                    <a id="slider" class="icon-menu">Menu</a>
+                </div>
+                <div id="metainfo">
+                    <span id="book-title"></span>
+                    <span id="title-seperator">&nbsp;&nbsp;–&nbsp;&nbsp;</span>
+                    <span id="chapter-title"></span>
+                </div>
+                <div id="title-controls">
+
+                    <a id="moving-Content" class="icon-move">
+                        <div class="tooltiptext">移動</div>
+                    </a>
+
+                    <a id="show-Layout" class="icon-layout-setting">
+                        <div class="tooltiptext">版面調整</div>
+                    </a>
+                    <a id="fullscreen" class="icon-resize-full">
+                        <div class="tooltiptext">全螢幕</div>
+                    </a>
+                </div>
+            </div>
+
+            <div id="divider"></div>
+            <div id="prev" class="arrow">‹</div> 
+
+            <div id="viewer"></div>
+
+            <div id="coverBlock">
+                <img src="" height = "80%" width ="auto" id="cover">           
+            </div>     
+
+            <div id="next" class="arrow">›</div>
+
+            <div id="loader">
+                <img src="img/loader.gif">
+                <p id="changeText" style="display:none;">轉換中，請稍後...</p>
+            </div>
+        </div>
+
+        <div class="modal md-effect-1" id="layout-settings-modal">
+            <div class="md-content">
+                <h3>版面調整</h3>
+                <div id="zoomInSetting">
+                    <input type="range" id="zoom" value="50" max="75" min="50">
+                </div>
+                <div id="writingModeSetting">
+                    <button type="button" id="vertical">直書</button>
+                    <button type="button" id="horizontal">橫書</button>
+                </div>
+                <div id="fontSizeSetting">
+                    <button type="button" id="fontLarge">字體大</button>
+                    <button type="button" id="fontSmall" disabled>字體小</button>
+                </div>
+                <div id="fontFamilySetting">
+                    <button type="button" id="SimHei"><!--"SimHei"-->黑</button>
+                    <button type="button" id="PMingLiU"><!--"PMingLiU"-->明</button>
+                    <button type="button" id="SimSun">宋</button>
+                    <button type="button" id="KaiTi"><!--"KaiTi"-->楷</button>
+                </div>
+                <div id="lineHeight">
+                    <button type="button" id="lineHeightLarge">行距大</button>
+                    <button type="button" id="lineHeightSmall" disabled>行距小</button>
+                </div>
+                <div id="backgroundThemeSetting">
+                    <button type="button" id="origin" style="background: #fff;color: #000;">一般</button>
+                    <button type="button" id="vintage" style="background: #F4EFE3;color: #5B422A;">復古</button>
+                    <button type="button" id="night" style="background: #495158;color: #fff;">夜間</button>
+                    <button type="button" id="peace" style="background: #F9F9F9;color: #788694;">寧靜</button>
+                    <button type="button" id="cold" style="background: #253F58;color: #9FBBC6;">冷色</button>
+                    <button type="button" id="black" style="background: #000;color: #fff;">純黑</button>
+                    <button type="button" id="milkgreen" style="background: #EEF9F2;color: #7E8E9A;">奶綠</button>
+                    <button type="button" id="coffee" style="background: #70614B;color: #F3EEE2;">咖啡</button>
+                    <button type="button" id="blackboard" style="background: #36423C;color: #DDDDDD;">黑板</button>
+                </div>
+                <div class="info icon icon-info-circled"></div>
+                <div class="closer icon icon-cancel-circled"></div>
+
+            </div>
+        </div>
+
+        <div id="toolbar">
+            <div id="pagebar">
+                <div id="single-page" class="icon-toolbar-single"> 
+                    <div class="tooltiptext">單頁閱讀</div>
+                </div>
+                <div id="double-page" class="icon-toolbar-double fence">
+                    <div class="tooltiptext">雙頁閱讀</div>
+                </div>
+
+                <div id="firstPage" class="icon-toolbar-to-start">
+                    <div class="tooltiptext">第一頁</div>
+                </div>
+                <div id="toolbar-prev" class="icon-toolbar-left-dir">
+                    <div class="tooltiptext">上一頁</div>
+                </div>
+                <div id="toolbar-next" class="icon-toolbar-right-dir">
+                    <div class="tooltiptext">下一頁</div>
+                </div>
+                <div id="lastPage" class="icon-toolbar-to-end fence">
+                    <div class="tooltiptext">最末頁</div>
+                </div>
+                <!-- 本章共<input id="total-page" size="2" value="0" />頁， -->
+                <!-- 第<input id="current-page" size="2" value="0" />頁 -->
+                <span>進度</span><input id="current-page" size="2" value="0" disabled="true" readOnly="true"/>%
+                <br class="break"/>
+                <span class="fence"></span>
+                <div id="auto-page-turning" class="icon-toolbar-play-circled2">
+                    <div id = "auto-page-turning-tip" class="tooltiptext">自動翻頁</div>
+                </div>
+                每<input id = "delay-time" type="number" min="0" max="10" step="1" value="5" size="5"/>秒，自動翻頁
+            </div> 
+        </div>
+
+        <div class="overlay"></div>
+
+    </body>
+
+
+</html>
