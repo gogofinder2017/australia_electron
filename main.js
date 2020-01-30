@@ -17,7 +17,7 @@ function createWindow() {
         }
     })
     // and load the index.html of the app.
-    mainWindow.loadFile('index.html')
+    mainWindow.loadFile('epubReader/index.html')
     Menu.setApplicationMenu(null);
     // Open the DevTools.
     // mainWindow.webContents.openDevTools()
@@ -54,3 +54,13 @@ app.on('activate', function () {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
+/*
+ * "oneClick": false,
+      "perMachine": true,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "warningsAsErrors": true,
+      "runAfterFinish": true
+ */

@@ -9,15 +9,15 @@
 ----
 ## electron 基本安裝步驟
 1. 下載 electron-quick-start 檔案內容
-   git clone https://github.com/electron/electron-quick-start
-   [electron-quick-start github](https://en.wikipedia.org/wiki/Markdown)
+   git clone https://github.com/electron/electron-quick-start     
+   [electron-quick-start github](https://en.wikipedia.org/wiki/Markdown)      
 2. 開啟cmd，並移動至electron-quick-start資料夾
    cd C:\xampp\htdocs\electron-quick-start (範例路徑)
 3. 在cmd(終端機)內輸入 npm install
 4. 在cmd內輸入 npm start，即可預覽App檔開啟後狀態
 ----
 ### 打包檔案放置位置
-> 請將所要打包的檔案放置在 C:\xampp\htdocs\electron-quick-start\    
+請將所要打包的檔案放置在 C:\xampp\htdocs\electron-quick-start\        
 >┌ package.json        放置 npm 相關版本內容...，執行 npm 指令檔案     
 >├ main.js             預覽App及設置瀏覽器開啟打包檔相關，包含App上方工具列設置...等     
 >├ package-lock.json     
@@ -28,12 +28,9 @@
 >├ LICENSE.md     
 >└ 其他所要打包檔案(file/js/css/image....)     
 
-### main.js 相關設置
-請參考github內main.js內容    
-
+### main.js 相關設置(請參考github內main.js內容)          
 `mainWindow.loadFile('path/to/index.html')`    
 指定至開啟App的主頁面index.html    
-
 
 `Menu.setApplicationMenu(null);`    
 移除App上方工具列表    
